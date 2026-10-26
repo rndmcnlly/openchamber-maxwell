@@ -1,0 +1,54 @@
+{
+  "name": "openchamber-maxwell",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A Hell Thread UX design probe for OpenChamber",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "tsc --noEmit",
+    "test": "node --test test/*.test.mjs",
+    "dev": "node dev.mjs"
+  },
+  "devDependencies": {
+    "@openchamber/sdk": "2.5.0",
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.9.3"
+  },
+  "openchamber": {
+    "apiVersion": 1,
+    "engines": {
+      "openchamber": ">=2.5.0"
+    },
+    "contributes": {
+      "panel": {
+        "id": "maxwell",
+        "name": "Maxwell",
+        "icon": "icon.svg",
+        "entry": "panel/index.html"
+      },
+      "page": {
+        "entry": "panel/index.html",
+        "title": "Maxwell"
+      },
+      "capabilities": [
+        "sessions",
+        "prompt"
+      ],
+      "service": {
+        "entry": "service/main.js",
+        "runtime": "host"
+      }
+    }
+  },
+  "dependencies": {
+    "dompurify": "3.4.17",
+    "marked": "18.1.1",
+    "tinfoil": "1.3.0"
+  }
+}
